@@ -1,0 +1,199 @@
+:root {
+  --bg1: #06131f;
+  --bg2: #0a2a3a;
+  --card: rgba(255, 255, 255, 0.08);
+  --card2: rgba(255, 255, 255, 0.12);
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.7);
+  --stroke: rgba(255, 255, 255, 0.16);
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: radial-gradient(1200px 800px at 20% 15%, #123a52 0%, transparent 55%),
+              radial-gradient(1000px 700px at 90% 70%, #1a5a4b 0%, transparent 55%),
+              linear-gradient(135deg, var(--bg1), var(--bg2));
+  overflow: hidden;
+}
+
+#snow {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 28px 16px;
+}
+
+.card {
+  position: relative;
+  width: min(680px, 100%);
+  border: 1px solid var(--stroke);
+  background: linear-gradient(180deg, var(--card), rgba(255, 255, 255, 0.04));
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.card__glow {
+  position: absolute;
+  inset: -2px;
+  background: radial-gradient(600px 240px at 20% 0%, rgba(255, 255, 255, 0.22), transparent 60%),
+              radial-gradient(520px 240px at 90% 20%, rgba(255, 215, 120, 0.16), transparent 60%);
+  pointer-events: none;
+}
+
+.card__header {
+  padding: 28px 26px 10px;
+  text-align: center;
+}
+
+.badge {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 10px;
+  border-radius: 14px;
+  border: 1px solid var(--stroke);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 42px);
+  letter-spacing: 0.2px;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.card__body {
+  padding: 18px 26px 8px;
+}
+
+.message {
+  margin: 0 0 16px;
+  font-size: 18px;
+  line-height: 1.5;
+  text-wrap: balance;
+}
+
+.signature {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  margin: 6px 0;
+  color: var(--muted);
+}
+.signature__label {
+  width: 52px;
+  opacity: 0.9;
+}
+.signature__value {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.card__footer {
+  padding: 16px 18px 20px;
+  border-top: 1px solid var(--stroke);
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.18));
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+.field--full { grid-column: 1 / -1; }
+
+.field > span {
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  color: var(--muted);
+}
+
+input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--stroke);
+  background: rgba(0, 0, 0, 0.18);
+  color: var(--text);
+  outline: none;
+}
+input::placeholder { color: rgba(255, 255, 255, 0.45); }
+input:focus { border-color: rgba(255, 255, 255, 0.35); }
+
+.actions {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.btn {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.05s ease, background 0.15s ease;
+}
+.btn:hover { background: rgba(255, 255, 255, 0.18); }
+.btn:active { transform: translateY(1px); }
+
+.btn--ghost {
+  background: rgba(0, 0, 0, 0.16);
+}
+
+.hint {
+  grid-column: 1 / -1;
+  margin: 6px 0 0;
+  min-height: 18px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 12px;
+}
+
+.tiny {
+  margin: 14px 0 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  text-align: center;
+  max-width: 680px;
+}
+
+@media (max-width: 520px) {
+  .form { grid-template-columns: 1fr; }
+  .signature__label { width: 44px; }
+}
+
+/* When the card is final, hide the editor (and its buttons) */
+.card--readonly .card__footer {
+  display: none;
+}

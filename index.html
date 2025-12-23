@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Postal navideña</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <canvas id="snow" aria-hidden="true"></canvas>
+
+  <main class="wrap">
+    <section class="card" aria-label="Postal navideña">
+      <div class="card__glow" aria-hidden="true"></div>
+
+      <header class="card__header">
+        <div class="badge" aria-hidden="true">🎄</div>
+        <h1 class="title" id="titleText">¡Feliz Navidad!</h1>
+        <p class="subtitle" id="subtitleText">y un 2026 lleno de buenas cosas ✨</p>
+      </header>
+
+      <div class="card__body">
+        <p class="message" id="message">
+          Que estas fiestas te traigan calma, risas y tiempo para lo importante.
+        </p>
+
+        <div class="signature">
+          <span class="signature__label">Para:</span>
+          <span class="signature__value" id="toValue">—</span>
+        </div>
+        <div class="signature">
+          <span class="signature__label">De:</span>
+          <span class="signature__value" id="fromValue">—</span>
+        </div>
+      </div>
+
+      <footer class="card__footer">
+        <form class="form" id="form">
+          <label class="field">
+            <span>Para</span>
+            <input id="toInput" maxlength="40" placeholder="Ej: Mireia" />
+          </label>
+          <label class="field">
+            <span>De</span>
+            <input id="fromInput" maxlength="40" placeholder="Ej: Roger" />
+          </label>
+
+          <label class="field field--full">
+            <span>Título</span>
+            <input id="titleInput" maxlength="60" placeholder="Ej: ¡Feliz Navidad!" />
+          </label>
+
+          <label class="field field--full">
+            <span>Subtítulo</span>
+            <input id="subtitleInput" maxlength="80" placeholder="Ej: y un 2026 lleno de buenas cosas ✨" />
+          </label>
+
+          <label class="field field--full">
+            <span>Mensaje</span>
+            <input id="msgInput" maxlength="120" placeholder="Escribe una frase corta y bonita…" />
+          </label>
+
+          <div class="actions">
+            <button type="submit" class="btn">Actualizar</button>
+            <button type="button" class="btn btn--ghost" id="copyBtn">
+              Copiar enlace
+            </button>
+            <button type="button" class="btn btn--ghost" id="toggleSnowBtn">
+              Nieve: ON
+            </button>
+          </div>
+
+          <p class="hint" id="hint" role="status" aria-live="polite"></p>
+        </form>
+      </footer>
+    </section>
+
+    <p class="tiny">
+      Tip: comparte el enlace y la postal se abre con el texto ya rellenado.
+    </p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

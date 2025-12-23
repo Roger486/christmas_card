@@ -87,26 +87,24 @@ qs("form").addEventListener("submit", (e) => {
 });
 
 qs("copyBtn").addEventListener("click", async () => {
+  const title = sanitize(qs("titleInput").value);
+  const subtitle = sanitize(qs("subtitleInput").value);
   const to = sanitize(qs("toInput").value);
   const from = sanitize(qs("fromInput").value);
   const msg = sanitize(qs("msgInput").value);
 
-  const url = buildUrlWithParams({ to, from, msg });
+  const url = buildUrlWithParams({ title, subtitle, to, from, msg });
 
   try {
     await navigator.clipboard.writeText(url);
     setHint("🔗 Enlace copiado al portapapeles");
-  } catch {
-    // Fallback
-    const ta = document.createElement("textarea");
-    ta.value = url;
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand("copy");
-    ta.remove();
-    setHint("🔗 Enlace copiado (modo compatibilidad)");
+  } catch (err) {
+    console.error("Clipboard API failed", err);
+    setHint("❌ No se pudo copiar el enlace");
   }
 });
+
+
 
 // ---------- Snow canvas ----------
 const canvas = qs("snow");

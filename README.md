@@ -77,3 +77,8 @@ Puedes usarlo, modificarlo y adaptarlo libremente.
 
 Proyecto personal y experimental, creado como postal navideña compartible.  
 Ideal para aprender o reutilizar como base para tarjetas digitales.
+
+---
+
+Made with 💙 and Christmas Spirit 🎄  
+by **Roger Navarro**

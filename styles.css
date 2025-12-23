@@ -197,3 +197,31 @@ input:focus { border-color: rgba(255, 255, 255, 0.35); }
 .card--readonly .card__footer {
   display: none;
 }
+
+/* Footer */
+
+.site-footer {
+  margin-top: 14px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 12px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.site-footer a {
+  color: rgba(255, 255, 255, 0.62);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.25);
+}
+
+.site-footer a:hover {
+  color: rgba(255, 255, 255, 0.8);
+  border-bottom-color: rgba(255, 255, 255, 0.45);
+}
+
+.site-footer .sep {
+  opacity: 0.6;
+}

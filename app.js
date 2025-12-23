@@ -203,3 +203,6 @@ qs("toggleSnowBtn").addEventListener("click", () => {
     setHint("🌙 Nieve desactivada");
   }
 });
+
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = String(new Date().getFullYear());
